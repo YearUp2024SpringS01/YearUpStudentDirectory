@@ -17,8 +17,7 @@ window.onload = () => {
 
 };
 
-
-{/* <div id="studentListRow" class="row">
+/* <div id="studentListRow" class="row">
 <div class="col">
     <div class="card studentcard">
         <img src="https://picsum.photos/200/200?random=1" class="card-img-top" alt="Mireya Avila">
@@ -34,17 +33,15 @@ window.onload = () => {
           <a href="#" class="btn btn-primary">Learn More about Mireya Avila</a>
         </div>
       </div>
-</div> */}
+</div> */
 
 function createStudentColumnElement(student){
     let studentColumnDiv = document.createElement("div");
-    
-    studentColumnDiv.className = "col";
 
+    studentColumnDiv.className = "col";
 
     let studentCardDiv = document.createElement("div");
     studentCardDiv.className = "card studentcard";
-    studentCardDiv.innerHTML = student.name;
 
     studentColumnDiv.appendChild(studentCardDiv);
 
@@ -55,12 +52,45 @@ function createStudentColumnElement(student){
 
     studentCardDiv.appendChild(studentImage);
 
+    let cardBodyDiv = document.createElement("div");
+    cardBodyDiv.className = "card-body";
+
+    studentCardDiv.appendChild(cardBodyDiv);
+
+    let studentHeadedTag = document.createElement("h5");
+    studentHeadedTag.innerHTML = student.name;
+
+    cardBodyDiv.appendChild(studentHeadedTag);
 
 
+    let paraEmail = document.createElement("p");
+    paraEmail.className = "card-text";
+
+    cardBodyDiv.appendChild(paraEmail);
 
 
+    let aEmail = document.createElement("a");
+    aEmail.href = "mailto://" + student.email;
+    aEmail.innerHTML = student.email;
+
+    paraEmail.appendChild(aEmail);
 
 
+    let paraGithub = document.createElement("p");
+    cardBodyDiv.appendChild(paraGithub);
+
+    let aGithub = document.createElement("a");
+    aGithub.href = student.githuburl;
+    aGithub.innerHTML = student.githuburl;
+    paraGithub.appendChild(aGithub);
+
+
+    let aButton = document.createElement("a");
+    aButton.className = "btn btn-primary";
+    aButton.innerHTML = "Learn more about " + student.name;
+    aButton.href = "#";
+
+    cardBodyDiv.appendChild(aButton);
 
 
 
